@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MeCaControls>
+  <!--Controls info-->
+  <panelWidth>1334</panelWidth>
+  <panelHeight>693</panelHeight>
+  <backColor>-12566464</backColor>
+  <borderColor>-2039584</borderColor>
+  <MeCaControl>
+    <x>437</x>
+    <y>64</y>
+    <width>176</width>
+    <height>65</height>
+    <meCaControlName>ACC_ACCTargetAcceleration</meCaControlName>
+    <a2lVarName>ACC_ACCTargetAcceleration</a2lVarName>
+    <bgColor>-2894893</bgColor>
+    <controlClass>MeCa.Ctl.MeCaMeaBasicControl</controlClass>
+    <minValue>0</minValue>
+    <maxValue>100</maxValue>
+    <pointOne>33</pointOne>
+    <pointTwo>66</pointTwo>
+    <transferModel>0</transferModel>
+    <transferTimer>100</transferTimer>
+  </MeCaControl>
+</MeCaControls>

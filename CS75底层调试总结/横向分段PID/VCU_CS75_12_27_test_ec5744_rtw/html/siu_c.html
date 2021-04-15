@@ -1,0 +1,151 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - siu.c</title>
+<style> .LN { font-style: italic; color: #888888 } </style>
+<style> .CT { font-style: italic; color: #117755 } </style>
+<style> .PP { font-style: bold;   color: #992211 } </style>
+<style> .KW { font-style: bold;   color: #112266 } </style>
+<style> .DT { font-style: bold;   color: #112266 } </style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" text="#1122aa" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('siu_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../siu.c" target="rtwreport_document_frame" id="linkToText_plain">siu.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * Code generated for Simulink model VCU_CS75_12_27_test.</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * FILE    : siu.c</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * VERSION : 1.2768</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * DATE    : Wed Dec 30 13:20:36 2020</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Copyright 2011-2017 ECUCoder. All Rights Reserved.</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="12">   12   </a>
+</span><span><a class="LN" name="13">   13   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;siu.h&quot;</font>
+</span><span><a class="LN" name="14">   14   </a>
+</span><span><a class="LN" name="15">   15   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * FUNCTION :    ec_siu_init                                               *</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> * DESCRIPTION : Initialize the SIU module                                 *</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> * PARAMETERS :  None                   *</span>
+</span><span><a class="LN" name="22">   22   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="23">   23   </a><span class="CT"> * RETURN :      None                                                      *</span>
+</span><span><a class="LN" name="24">   24   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="25">   25   </a><span class="DT">void</span> <a name="fcn_ec_siu_init">ec_siu_init</a>(<span class="DT">void</span>)
+</span><span><a class="LN" name="26">   26   </a><b>{</b>
+</span><span><a class="LN" name="27">   27   </a>  <span class="CT">//CAN0管脚初始化</span>
+</span><span><a class="LN" name="28">   28   </a>  SIUL2_MSCR16 = 0X32810001;           <span class="CT">//CAN0,TX</span>
+</span><span><a class="LN" name="29">   29   </a>  SIUL2_MSCR17 = 0X30080000;           <span class="CT">//CAN0,RX</span>
+</span><span><a class="LN" name="30">   30   </a>  SIUL2_IMCR32 = 0X00000002;           <span class="CT">//CAN0,RX</span>
+</span><span><a class="LN" name="31">   31   </a>
+</span><span><a class="LN" name="32">   32   </a>  <span class="CT">//CAN1管脚初始化</span>
+</span><span><a class="LN" name="33">   33   </a>  SIUL2_MSCR14 = 0X32810001;           <span class="CT">//CAN1,TX</span>
+</span><span><a class="LN" name="34">   34   </a>  SIUL2_MSCR15 = 0X30080000;           <span class="CT">//CAN1,RX</span>
+</span><span><a class="LN" name="35">   35   </a>  SIUL2_IMCR33 = 0X00000001;           <span class="CT">//CAN1,RX</span>
+</span><span><a class="LN" name="36">   36   </a>
+</span><span><a class="LN" name="37">   37   </a>  <span class="CT">//CAN2管脚初始化</span>
+</span><span><a class="LN" name="38">   38   </a>  SIUL2_MSCR94 = 0X32810002;           <span class="CT">//CAN0,TX</span>
+</span><span><a class="LN" name="39">   39   </a>  SIUL2_MSCR95 = 0X30080000;           <span class="CT">//CAN0,RX</span>
+</span><span><a class="LN" name="40">   40   </a>  SIUL2_IMCR34 = 0X00000001;           <span class="CT">//CAN0,RX</span>
+</span><span><a class="LN" name="41">   41   </a>
+</span><span><a class="LN" name="42">   42   </a>  <span class="CT">//LIN0管脚初始化</span>
+</span><span><a class="LN" name="43">   43   </a>  SIUL2_MSCR18 = 0X32810001;           <span class="CT">//LIN0,TX</span>
+</span><span><a class="LN" name="44">   44   </a>  SIUL2_MSCR19 = 0X00080000;           <span class="CT">//LIN0,RX</span>
+</span><span><a class="LN" name="45">   45   </a>  SIUL2_IMCR165 = 0X00000001;          <span class="CT">//LIN0,RX</span>
+</span><span><a class="LN" name="46">   46   </a>
+</span><span><a class="LN" name="47">   47   </a>  <span class="CT">//SPI0管脚初始化</span>
+</span><span><a class="LN" name="48">   48   </a>  SIUL2_MSCR37 = 0X33800001;           <span class="CT">//SPI0,SCK0</span>
+</span><span><a class="LN" name="49">   49   </a>  SIUL2_MSCR38 = 0X33800001;           <span class="CT">//SPI0,SDO0</span>
+</span><span><a class="LN" name="50">   50   </a>  SIUL2_MSCR39 = 0X30080000;           <span class="CT">//SPI0,SDI0</span>
+</span><span><a class="LN" name="51">   51   </a>  SIUL2_IMCR41 = 0X00000001;           <span class="CT">//SPI0,SDI0</span>
+</span><span><a class="LN" name="52">   52   </a>  SIUL2_MSCR36 = 0X33800001;           <span class="CT">//SPI0,PCS00</span>
+</span><span><a class="LN" name="53">   53   </a>  SIUL2_MSCR79 = 0X33800001;           <span class="CT">//SPI0,PCS01</span>
+</span><span><a class="LN" name="54">   54   </a>  SIUL2_MSCR54 = 0X33800001;           <span class="CT">//SPI0,PCS02</span>
+</span><span><a class="LN" name="55">   55   </a>
+</span><span><a class="LN" name="56">   56   </a>  <span class="CT">//SPI1管脚初始化</span>
+</span><span><a class="LN" name="57">   57   </a>  SIUL2_MSCR6 = 0X32810001;            <span class="CT">//SPI1,SCK1</span>
+</span><span><a class="LN" name="58">   58   </a>  SIUL2_MSCR7 = 0X32810001;            <span class="CT">//SPI1,SDO1</span>
+</span><span><a class="LN" name="59">   59   </a>  SIUL2_MSCR8 = 0X30080000;            <span class="CT">//SPI1,SDI1</span>
+</span><span><a class="LN" name="60">   60   </a>  SIUL2_IMCR44 = 0X00000001;           <span class="CT">//SPI1,SDI1</span>
+</span><span><a class="LN" name="61">   61   </a>  SIUL2_MSCR5 = 0X32810001;            <span class="CT">//SPI1,PCS10</span>
+</span><span><a class="LN" name="62">   62   </a>  SIUL2_MSCR98 = 0X32810001;           <span class="CT">//SPI1,PCS11</span>
+</span><span><a class="LN" name="63">   63   </a>  SIUL2_MSCR56 = 0X32810001;           <span class="CT">//SPI1,PCS12</span>
+</span><span><a class="LN" name="64">   64   </a>
+</span><span><a class="LN" name="65">   65   </a>  <span class="CT">//PWM管脚初始化</span>
+</span><span><a class="LN" name="66">   66   </a>  <span class="CT">//SIUL2_MSCR11 = 0X02000002;  //PWM_A0</span>
+</span><span><a class="LN" name="67">   67   </a>  <span class="CT">//SIUL2_MSCR12 = 0X02000002;  //PWM_A2</span>
+</span><span><a class="LN" name="68">   68   </a>  <span class="CT">//SIUL2_MSCR42 = 0X02000003;  //PWM_A3</span>
+</span><span><a class="LN" name="69">   69   </a>  <span class="CT">//eTimer管脚初始化</span>
+</span><span><a class="LN" name="70">   70   </a>  SIUL2_MSCR0 = 0X00080000;            <span class="CT">//eTimer_Ch0</span>
+</span><span><a class="LN" name="71">   71   </a>  SIUL2_IMCR59 = 0X00000002;           <span class="CT">//eTimer_Ch0</span>
+</span><span><a class="LN" name="72">   72   </a>  SIUL2_MSCR1 = 0X00080000;            <span class="CT">//eTimer_Ch1</span>
+</span><span><a class="LN" name="73">   73   </a>  SIUL2_IMCR60 = 0X00000002;           <span class="CT">//eTimer_Ch1</span>
+</span><span><a class="LN" name="74">   74   </a>  SIUL2_MSCR43 = 0X00080000;           <span class="CT">//eTimer_Ch4</span>
+</span><span><a class="LN" name="75">   75   </a>  SIUL2_IMCR63 = 0X00000004;           <span class="CT">//eTimer_Ch4</span>
+</span><span><a class="LN" name="76">   76   </a>  SIUL2_MSCR44 = 0X00080000;           <span class="CT">//eTimer_Ch5</span>
+</span><span><a class="LN" name="77">   77   </a>  SIUL2_IMCR64 = 0X00000003;           <span class="CT">//eTimer_Ch5</span>
+</span><span><a class="LN" name="78">   78   </a>
+</span><span><a class="LN" name="79">   79   </a>  <span class="CT">//GPI管脚初始化</span>
+</span><span><a class="LN" name="80">   80   </a>  SIUL2_MSCR92 = 0X00080000;           <span class="CT">//GPIO92      6:I_SW01_L</span>
+</span><span><a class="LN" name="81">   81   </a>  SIUL2_MSCR99 = 0X00080000;           <span class="CT">//GPIO99      7:I_SW02_L</span>
+</span><span><a class="LN" name="82">   82   </a>  SIUL2_MSCR45 = 0X00080000;           <span class="CT">//GPIO45      8:I_SW03_L</span>
+</span><span><a class="LN" name="83">   83   </a>  SIUL2_MSCR60 = 0X00080000;           <span class="CT">//GPIO60      9:I_SW04_L</span>
+</span><span><a class="LN" name="84">   84   </a>  SIUL2_MSCR152 = 0X00080000;          <span class="CT">//GPIO152 10:I_SW05_L</span>
+</span><span><a class="LN" name="85">   85   </a>  SIUL2_MSCR62 = 0X00080000;           <span class="CT">//GPIO62      26:I_SW07_L</span>
+</span><span><a class="LN" name="86">   86   </a>  SIUL2_MSCR46 = 0X00080000;           <span class="CT">//GPIO46      27:I_SW08_L</span>
+</span><span><a class="LN" name="87">   87   </a>  SIUL2_MSCR100 = 0X00080000;          <span class="CT">//GPIO100  28:I_SW09_L</span>
+</span><span><a class="LN" name="88">   88   </a>  SIUL2_MSCR102 = 0X00080000;          <span class="CT">//GPIO102  29:I_SW10_L</span>
+</span><span><a class="LN" name="89">   89   </a>  SIUL2_MSCR93 = 0X00080000;           <span class="CT">//GPIO93      44:I_SW11_H</span>
+</span><span><a class="LN" name="90">   90   </a>  SIUL2_MSCR101 = 0X00080000;          <span class="CT">//GPIO101  46:I_SW12_H</span>
+</span><span><a class="LN" name="91">   91   </a>  SIUL2_MSCR103 = 0X00080000;          <span class="CT">//GPIO103   65:I_SW13_H</span>
+</span><span><a class="LN" name="92">   92   </a>  SIUL2_MSCR77 = 0X00080000;           <span class="CT">//GPIO77       100:I_SW14_H</span>
+</span><span><a class="LN" name="93">   93   </a>  SIUL2_MSCR78 = 0X00080000;           <span class="CT">//GPIO78       102:I_SW15_H</span>
+</span><span><a class="LN" name="94">   94   </a>  SIUL2_MSCR47 = 0X00080000;           <span class="CT">//GPIO47       103:I_SW16_H</span>
+</span><span><a class="LN" name="95">   95   </a>  SIUL2_MSCR48 = 0X00080000;           <span class="CT">//GPIO48       104:I_SW17_H</span>
+</span><span><a class="LN" name="96">   96   </a>  SIUL2_MSCR52 = 0X00080000;           <span class="CT">//GPIO52       105:I_SW18_H</span>
+</span><span><a class="LN" name="97">   97   </a>  SIUL2_MSCR51 = 0X00080000;           <span class="CT">//GPIO51       112:I_SW19_H</span>
+</span><span><a class="LN" name="98">   98   </a>  SIUL2_MSCR80 = 0X00080000;           <span class="CT">//GPIO80       113:I_SW20_H</span>
+</span><span><a class="LN" name="99">   99   </a>  SIUL2_MSCR107 = 0X00080000;          <span class="CT">//GPIO107   KL15</span>
+</span><span><a class="LN" name="100">  100   </a>  SIUL2_MSCR49 = 0X00080000;           <span class="CT">//GPIO49       25:I_Bootkey</span>
+</span><span><a class="LN" name="101">  101   </a>
+</span><span><a class="LN" name="102">  102   </a>  <span class="CT">//GPO管脚初始化</span>
+</span><span><a class="LN" name="103">  103   </a>  SIUL2_MSCR11 = 0X03000000;           <span class="CT">//GPIO11  60:O_PWM1_LS0A4  默认值为1</span>
+</span><span><a class="LN" name="104">  104   </a>  SIUL2.GPDO[11].R = 1;
+</span><span><a class="LN" name="105">  105   </a>  SIUL2_MSCR12 = 0X03000000;           <span class="CT">//GPIO12  90:O_PWM2_LS0A4   默认值为1</span>
+</span><span><a class="LN" name="106">  106   </a>  SIUL2.GPDO[12].R = 1;
+</span><span><a class="LN" name="107">  107   </a>  SIUL2_MSCR22 = 0X02000000;           <span class="CT">//GPIO22  看门狗使能   默认值为1</span>
+</span><span><a class="LN" name="108">  108   </a>  SIUL2.GPDO[22].R = 1;
+</span><span><a class="LN" name="109">  109   </a>  SIUL2_MSCR13 = 0X02000000;           <span class="CT">//GPIO12  看门狗喂狗   默认值为1</span>
+</span><span><a class="LN" name="110">  110   </a>  SIUL2.GPDO[13].R = 1;
+</span><span><a class="LN" name="111">  111   </a>  SIUL2_MSCR58 = 0X02000000;           <span class="CT">//GPIO12  AfterRun开关   默认值为0</span>
+</span><span><a class="LN" name="112">  112   </a>  SIUL2.GPDO[58].R = 0;
+</span><span><a class="LN" name="113">  113   </a>  SIUL2_MSCR50 = 0X02000000;           <span class="CT">//GPIO50  114:O_SW12_HS1A   默认值为0 保留对V1.2硬件的兼容性支持</span>
+</span><span><a class="LN" name="114">  114   </a>  SIUL2.GPDO[50].R = 0;
+</span><span><a class="LN" name="115">  115   </a>  SIUL2_MSCR42 = 0X02000000;           <span class="CT">//GPIO42  114:O_SW12_HS1A   默认值为0</span>
+</span><span><a class="LN" name="116">  116   </a>  SIUL2.GPDO[42].R = 0;
+</span><span><a class="LN" name="117">  117   </a>  SIUL2_MSCR57 = 0X02000000;           <span class="CT">//GPIO57  115:O_SW13_HS1A   默认值为0</span>
+</span><span><a class="LN" name="118">  118   </a>  SIUL2.GPDO[57].R = 0;
+</span><span><a class="LN" name="119">  119   </a>  SIUL2_MSCR83 = 0X02000000;           <span class="CT">//GPIO83  117:O_SW14_HS1A   默认值为0</span>
+</span><span><a class="LN" name="120">  120   </a>  SIUL2.GPDO[83].R = 0;
+</span><span><a class="LN" name="121">  121   </a>  SIUL2_MSCR55 = 0X02000000;           <span class="CT">//GPIO55  118:O_SW15_HS1A   默认值为0</span>
+</span><span><a class="LN" name="122">  122   </a>  SIUL2.GPDO[55].R = 0;
+</span><span><a class="LN" name="123">  123   </a><b>}</b>
+</span><span><a class="LN" name="124">  124   </a>
+</span><span><a class="LN" name="125">  125   </a><span class="CT">/* File trailer for ECUCoder generated file siu.c.</span>
+</span><span><a class="LN" name="126">  126   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="127">  127   </a><span class="CT"> * [EOF]</span>
+</span><span><a class="LN" name="128">  128   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="129">  129   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

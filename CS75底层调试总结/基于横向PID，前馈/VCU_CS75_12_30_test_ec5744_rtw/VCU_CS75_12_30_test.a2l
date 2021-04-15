@@ -1,0 +1,1253 @@
+/******************************************************************************
+ *
+ *  ASAP2 file:     VCU_CS75_12_30_test.a2l
+ *
+ * Code generation for model "VCU_CS75_12_30_test".
+ *
+ * Model version              : 1.2790
+ * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
+ * C source code generated on : Wed Mar 31 16:43:53 2021
+ * 
+ * Target selection: ec5744.tlc
+ * Embedded hardware selection: Freescale MPC5500
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ *
+ * (add additional file header information here)
+ *
+ ******************************************************************************/
+
+ASAP2_VERSION  1 31   /* Version 1.31 */
+
+/begin PROJECT ECUCoderProject "ECUCoder Project"
+  
+  /begin HEADER "Header Comments go here"
+    
+  /end HEADER
+  
+  
+  /begin MODULE ModuleName  "Module Comment Goes Here"
+    
+    /begin MOD_PAR "MOD PAR Comment Goes Here"
+      
+    /end MOD_PAR
+    
+    /begin MOD_COMMON  "Mod Common Comment Here" 
+      BYTE_ORDER     MSB_FIRST
+    /end MOD_COMMON
+    
+    /begin RECORD_LAYOUT Scalar_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_SWORD
+      FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+    /end RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Scalar_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    
+    /begin RECORD_LAYOUT Lookup1D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_SLONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT32_IEEE
+      AXIS_PTS_X  1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_FLOAT64_IEEE
+      FNC_VALUES  1 FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup1D_X_FLOAT64_IEEE
+      AXIS_PTS_X  1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_BOOLEAN
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_BOOLEAN
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT    
+    
+    /begin RECORD_LAYOUT Lookup2D_UBYTE
+      FNC_VALUES  1 UBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_UBYTE
+      AXIS_PTS_X  1 UBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_BYTE
+      FNC_VALUES  1 SBYTE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_BYTE
+      AXIS_PTS_X  1 SBYTE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_UWORD
+      FNC_VALUES  1 UWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_UWORD
+      AXIS_PTS_X  1 UWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_WORD
+      FNC_VALUES  1 SWORD COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_WORD
+      AXIS_PTS_X  1 SWORD INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_ULONG
+      FNC_VALUES  1 ULONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_ULONG
+      AXIS_PTS_X  1 ULONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_LONG
+      FNC_VALUES  1 SLONG COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_LONG
+      AXIS_PTS_X  1 SLONG INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_FLOAT32_IEEE
+      FNC_VALUES  1 FLOAT32_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT32_IEEE
+      AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_FLOAT64_IEEE
+      FNC_VALUES  1  FLOAT64_IEEE COLUMN_DIR DIRECT
+    /end   RECORD_LAYOUT
+    
+    /begin RECORD_LAYOUT Lookup2D_X_FLOAT64_IEEE
+      AXIS_PTS_X 1 FLOAT64_IEEE INDEX_INCR DIRECT
+    /end   RECORD_LAYOUT
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      D1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@D1@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      D2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@D2@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      D3  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@D3@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      ErrorLimit  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@ErrorLimit@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      ErrorSumMax1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@ErrorSumMax1@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      ErrorSumMax2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@ErrorSumMax2@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      ErrorSumMax3  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@ErrorSumMax3@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      I1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@I1@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      I2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@I2@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      I3  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@I3@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      LDW  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@LDW@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      Limit1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@Limit1@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      Limit2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@Limit2@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      P1  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@P1@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      P2  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@P2@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      P3  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@P3@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC 
+      /* Name                   */      T_buchang  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      @MemoryAddress@T_buchang@ 
+      /* Record Layout          */      Scalar_FLOAT64_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      VCU_CS75_12_30_test_CM_double 
+      /* Lower Limit            */      -1.7E+308 
+      /* Upper Limit            */      1.7E+308
+    /end CHARACTERISTIC
+    
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EMS_IndicatedRealTroq
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EMS_IndicatedRealTroq@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EMS_FrictionalTroq
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EMS_FrictionalTroq@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EMS_TorqueConstant
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EMS_TorqueConstant@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EMS_FullLoadIndicatedTroq
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EMS_FullLoadIndicatedTroq@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SAS_SteeringAngle
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@SAS_SteeringAngle@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPB_RollingCounter_id256
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EPB_RollingCounter_id256@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EMS_BrakePedalStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EMS_BrakePedalStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      P6_Value
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@P6_Value@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EPS_AvailabilityStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@EPS_AvailabilityStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Server_CommunicationStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Server_CommunicationStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      A1counter
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@A1counter@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      System_State
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@System_State@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VehicleCommunicationStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@VehicleCommunicationStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      counter1
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@counter1@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VehicleFaultStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@VehicleFaultStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      counter3
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@counter3@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_TrqEnable
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_TrqEnable@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_AccTorqueReq
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_AccTorqueReq@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_RollingCounter_id2E5
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_RollingCounter_id2E5@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_RollingCounter_id2E4
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_RollingCounter_id2E4@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_ACCTargetAcceleration
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_ACCTargetAcceleration@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_Driveoff_Request
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_Driveoff_Request@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ACC_CDDAxEnable
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ACC_CDDAxEnable@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      mubiao_zhuanjiao
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@mubiao_zhuanjiao@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LAS_LKSStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@LAS_LKSStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LAS_RollingCounter
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@LAS_RollingCounter@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      PID_SteeringOut
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@PID_SteeringOut@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Error
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@Error@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      ErrorSum
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@ErrorSum@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LAS_LDWVibrationWarning
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@LAS_LDWVibrationWarning@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LAS_LDWStatus
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT64_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_double
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -1.7E+308
+      /* Upper limit            */      1.7E+308
+      ECU_ADDRESS                       @MemoryAddress@LAS_LDWStatus@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      Vx_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@Vx_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      mission_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@mission_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SCS_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@SCS_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      finish_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@finish_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      tap_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@tap_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      cones_count_all_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@cones_count_all_out@
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      cones_count_actual_out
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      VCU_CS75_12_30_test_CM_single
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      -3.4E+38
+      /* Upper limit            */      3.4E+38
+      ECU_ADDRESS                       @MemoryAddress@cones_count_actual_out@
+    /end MEASUREMENT
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      VCU_CS75_12_30_test_CM_double
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%15.10"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      VCU_CS75_12_30_test_CM_single
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%8.6"
+      /* Units                  */      ""
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin GROUP 
+      /* Name                   */       VCU_CS75_12_30_test
+      /* Long identifier        */       "VCU_CS75_12_30_test"
+      /* Root                    */       ROOT
+      /begin SUB_GROUP
+        Root___CS75_____20ms__
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        SCS_out
+        Vx_out
+        cones_count_actual_out
+        cones_count_all_out
+        finish_out
+        mission_out
+        tap_out
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       Root___CS75_____20ms__
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次"
+      /begin SUB_GROUP
+        S2_APP
+        S2_Input
+        S2_Output
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_APP
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP"
+      /begin SUB_GROUP
+        S24_Controller
+        S24_Monitor
+        S24_System_State_Manager
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_Input
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input"
+      /begin SUB_GROUP
+        S25_ADC_Input
+        S25_CAN1_Rx
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S2_Output
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Output"
+      /begin SUB_GROUP
+        S26_CAN0_Tx
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S24_Controller
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Controller"
+      /begin SUB_GROUP
+        S27_Accesories
+        S27_Lateral
+        S27_Longitudinal
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S24_Monitor
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Monitor"
+      /begin SUB_GROUP
+        S28_Server_Status
+        S28_Vehicle_Status
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S24_System_State_Manager
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/System_State_Manager"
+      /begin REF_MEASUREMENT
+        System_State
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S25_ADC_Input
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/ADC_Input"
+      /begin REF_MEASUREMENT
+        P6_Value
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S25_CAN1_Rx
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx"
+      /begin SUB_GROUP
+        S62_EMS_255
+        S62_EPB_256
+        S62_SAS_108
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S26_CAN0_Tx
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Output/CAN0_Tx"
+      /begin SUB_GROUP
+        S693_to511
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S27_Accesories
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Controller/Accesories"
+      /begin REF_CHARACTERISTIC
+        LDW
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        LAS_LDWStatus
+        LAS_LDWVibrationWarning
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S27_Lateral
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Controller/Lateral"
+      /begin REF_CHARACTERISTIC
+        D1
+        D2
+        D3
+        ErrorLimit
+        ErrorSumMax1
+        ErrorSumMax2
+        ErrorSumMax3
+        I1
+        I2
+        I3
+        Limit1
+        Limit2
+        P1
+        P2
+        P3
+        T_buchang
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        Error
+        ErrorSum
+        LAS_LKSStatus
+        LAS_RollingCounter
+        PID_SteeringOut
+        mubiao_zhuanjiao
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S27_Longitudinal
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Controller/Longitudinal"
+      /begin REF_MEASUREMENT
+        ACC_ACCTargetAcceleration
+        ACC_AccTorqueReq
+        ACC_CDDAxEnable
+        ACC_Driveoff_Request
+        ACC_RollingCounter_id2E4
+        ACC_RollingCounter_id2E5
+        ACC_TrqEnable
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S28_Server_Status
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Monitor/Server_Status"
+      /begin REF_MEASUREMENT
+        A1counter
+        Server_CommunicationStatus
+        counter3
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S28_Vehicle_Status
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/APP/Monitor/Vehicle_Status"
+      /begin REF_MEASUREMENT
+        EPS_AvailabilityStatus
+        VehicleCommunicationStatus
+        VehicleFaultStatus
+        counter1
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S62_EMS_255
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EMS_255"
+      /begin SUB_GROUP
+        S85_ReceiveMessages
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S62_EPB_256
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EPB_256"
+      /begin SUB_GROUP
+        S88_ReceiveMessages
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S62_SAS_108
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/SAS_108"
+      /begin SUB_GROUP
+        S103_ReceiveMessages
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S693_to511
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Output/CAN0_Tx/to511"
+      /begin REF_MEASUREMENT
+        EMS_FrictionalTroq
+        EMS_FullLoadIndicatedTroq
+        EMS_IndicatedRealTroq
+        EMS_TorqueConstant
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S85_ReceiveMessages
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EMS_255/ReceiveMessages"
+      /begin SUB_GROUP
+        S166_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S88_ReceiveMessages
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EPB_256/ReceiveMessages"
+      /begin SUB_GROUP
+        S187_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S103_ReceiveMessages
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/SAS_108/ReceiveMessages"
+      /begin SUB_GROUP
+        S366_Subsystem
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S166_Subsystem
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EMS_255/ReceiveMessages/Subsystem"
+      /begin SUB_GROUP
+        S167_EMS
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S187_Subsystem
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EPB_256/ReceiveMessages/Subsystem"
+      /begin SUB_GROUP
+        S188_EPB
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S366_Subsystem
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/SAS_108/ReceiveMessages/Subsystem"
+      /begin SUB_GROUP
+        S367_SAS_2
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S167_EMS
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EMS_255/ReceiveMessages/Subsystem/EMS"
+      /begin REF_MEASUREMENT
+        EMS_BrakePedalStatus
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S188_EPB
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/EPB_256/ReceiveMessages/Subsystem/EPB"
+      /begin REF_MEASUREMENT
+        EPB_RollingCounter_id256
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP 
+      /* Name                   */       S367_SAS_2
+      /* Long identifier        */       "VCU_CS75_12_30_test/长安CS75底盘程序，20ms一次/Input/CAN1_Rx/SAS_108/ReceiveMessages/Subsystem/SAS_2"
+      /begin REF_MEASUREMENT
+        SAS_SteeringAngle
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    
+  /end MODULE
+  
+  
+/end PROJECT
+/* (add any file trailer comments here) */
+/* EOF VCU_CS75_12_30_test.a2l */

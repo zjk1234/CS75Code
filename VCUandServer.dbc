@@ -1,0 +1,101 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: Server VCU
+
+
+BO_ 2147508228 D: 8 VCU
+ SG_ LongitudinalAutoDrivingState : 63|8@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ LateralAutoDrivingSwitch : 55|8@0+ (1,0) [0|1] "" Vector__XXX
+ SG_ FSM_CurrentState : 47|8@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ControllerErrorState : 39|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ CommandSteering : 23|16@0- (0.1,0) [-780|780] "" Vector__XXX
+ SG_ Command_ACC : 7|16@0- (0.005,0) [-10|100] "" Vector__XXX
+
+BO_ 2147508227 C: 8 VCU
+ SG_ LongitudinalAcceleration : 31|16@0+ (0.00048829,-16) [-16|16.00008515] "m/s2" Vector__XXX
+ SG_ LateralAcceleration : 23|8@0+ (0.1,-12.7) [-12.7|12.8] "m/s2" Vector__XXX
+ SG_ YawRate : 7|16@0+ (0.0024719,-81) [-81|80.9959665] "deg/s" Vector__XXX
+
+BO_ 2147508226 B: 8 VCU
+ SG_ RemoteDecelerationRequest : 63|8@0+ (0.05,0) [0|12.75] "" Vector__XXX
+ SG_ RemoteThrottlePercentage : 55|8@0+ (0.4,0) [0|100] "" Vector__XXX
+ SG_ BrakePeadlState : 47|8@0+ (1,0) [0|3] "" Vector__XXX
+ SG_ ThrottlePedalPercentage : 39|8@0+ (0.4,0) [0|100] "" Vector__XXX
+ SG_ Steering_Angle : 23|16@0- (0.1,0) [-780|780] "deg" Vector__XXX
+ SG_ VehicleSpeed : 7|16@0- (0.05625,0) [-200|200] "" Vector__XXX
+
+BO_ 2147508225 A: 8 VCU
+ SG_ Wheel_Speed_RR_Data : 55|16@0- (0.05625,0) [-200|200] "" Vector__XXX
+ SG_ Wheel_Speed_RL_Data : 39|16@0- (0.05625,0) [-200|200] "" Vector__XXX
+ SG_ Wheel_Speed_FR_Data : 23|16@0- (0.05625,0) [-200|200] "" Vector__XXX
+ SG_ Wheel_Speed_FL_Data : 7|16@0- (0.05625,0) [-200|200] "" Vector__XXX
+
+BO_ 2147485697 a1: 8 Server
+ SG_ A1_Checksum : 55|16@0+ (1,0) [0|65535] "" Vector__XXX
+ SG_ A1_Message_Counter : 47|8@0+ (1,0) [0|255] "" Vector__XXX
+ SG_ AutoDrivingReady : 0|8@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LaterlAngleCommand : 31|16@0- (0.1,0) [-780|780] "" Vector__XXX
+ SG_ RemoteAcclPosition : 15|16@0- (0.005,0) [-10|100] "" Vector__XXX
+
+
+
+CM_ SG_ 2147508228 CommandSteering "rad";
+CM_ SG_ 2147508228 Command_ACC "% / m/s^2";
+CM_ SG_ 2147508226 RemoteDecelerationRequest "% / m/s^2";
+CM_ SG_ 2147508226 RemoteThrottlePercentage "% / m/s^2";
+CM_ SG_ 2147508226 BrakePeadlState "% / m/s^2";
+CM_ SG_ 2147508226 ThrottlePedalPercentage "% / m/s^2";
+CM_ SG_ 2147485697 A1_Message_Counter "0-255";
+CM_ SG_ 2147485697 AutoDrivingReady "AutoDrivingReady
+0：上位机为NoReady
+1：上位机为Ready";
+CM_ SG_ 2147485697 LaterlAngleCommand "rad";
+CM_ SG_ 2147485697 RemoteAcclPosition "% / m/s^2";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "ECU" STRING ;
+BA_DEF_ BU_  "CANoeJitterMax" INT 0 0;
+BA_DEF_ BU_  "CANoeJitterMin" INT 0 0;
+BA_DEF_ BU_  "CANoeDrift" INT 0 0;
+BA_DEF_ BU_  "CANoeStartDelay" INT 0 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "ECU" "";
+BA_DEF_DEF_  "CANoeJitterMax" 0;
+BA_DEF_DEF_  "CANoeJitterMin" 0;
+BA_DEF_DEF_  "CANoeDrift" 0;
+BA_DEF_DEF_  "CANoeStartDelay" 0;
+

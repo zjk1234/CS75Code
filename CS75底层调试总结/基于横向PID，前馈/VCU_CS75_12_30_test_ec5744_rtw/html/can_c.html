@@ -1,0 +1,483 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - can.c</title>
+<style> .LN { font-style: italic; color: #888888 } </style>
+<style> .CT { font-style: italic; color: #117755 } </style>
+<style> .PP { font-style: bold;   color: #992211 } </style>
+<style> .KW { font-style: bold;   color: #112266 } </style>
+<style> .DT { font-style: bold;   color: #112266 } </style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" text="#1122aa" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('can_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../can.c" target="rtwreport_document_frame" id="linkToText_plain">can.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * Code generated for Simulink model VCU_CS75_12_30_test.</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * FILE    : can.c</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * VERSION : 1.2790</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * DATE    : Wed Mar 31 16:43:51 2021</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Copyright 2011-2017 ECUCoder. All Rights Reserved.</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="12">   12   </a>
+</span><span><a class="LN" name="13">   13   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;can.h&quot;</font>
+</span><span><a class="LN" name="14">   14   </a><font color="#992211">#</font><span class="PP">if</span> 1
+</span><span><a class="LN" name="15">   15   </a>
+</span><span><a class="LN" name="16">   16   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> * FUNCTION :    ec_can0_init                                              *</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * DESCRIPTION : Initialize FlexCAN0 module                                *</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="21">   21   </a><span class="CT"> * PARAMETERS :  -*caninit: pointer to configuration set                   *</span>
+</span><span><a class="LN" name="22">   22   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="23">   23   </a><span class="CT"> * RETURN:       None                                                      *</span>
+</span><span><a class="LN" name="24">   24   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="25">   25   </a><span class="DT">void</span> <a name="fcn_ec_can0_init">ec_can0_init</a>(CAN_Initialization* caninit)
+</span><span><a class="LN" name="26">   26   </a><b>{</b>
+</span><span><a class="LN" name="27">   27   </a>  uint8 i,j;
+</span><span><a class="LN" name="28">   28   </a>  CAN_0.MCR.R = 0x5000003F;            <span class="CT">/* 64 message buffers in use */</span>
+</span><span><a class="LN" name="29">   29   </a>  <span class="KW">while</span> (!CAN_0.MCR.B.FRZACK) ;
+</span><span><a class="LN" name="30">   30   </a>  FLEXCAN(0).CTRL1.B.PRESDIV = 4;      <span class="CT">/* Prescaler division factor */</span>
+</span><span><a class="LN" name="31">   31   </a>  FLEXCAN(0).CTRL1.B.RJW = 1;          <span class="CT">/* Synchronization jump width */</span>
+</span><span><a class="LN" name="32">   32   </a>  FLEXCAN(0).CTRL1.B.PSEG1 = 3;        <span class="CT">/* Phase segment 1 */</span>
+</span><span><a class="LN" name="33">   33   </a>  FLEXCAN(0).CTRL1.B.PSEG2 = 3;        <span class="CT">/* Phase segment 2 */</span>
+</span><span><a class="LN" name="34">   34   </a>  FLEXCAN(0).CTRL1.B.BOFFMSK = 0;      <span class="CT">/* 1: Bus off interrupt enabled; 0: Bus off interrupt disabled */</span>
+</span><span><a class="LN" name="35">   35   </a>  FLEXCAN(0).CTRL1.B.ERRMSK = 0;       <span class="CT">/* 1: Error interrupt enabled; 0: Error interrupt disabled */</span>
+</span><span><a class="LN" name="36">   36   </a>  FLEXCAN(0).CTRL1.B.CLKSRC = 0;       <span class="CT">/* CAN engine clock source. 0: oscillator clock; 1: system clock */</span>
+</span><span><a class="LN" name="37">   37   </a>  FLEXCAN(0).CTRL1.B.LPB = 0;          <span class="CT">/* Loop back disabled */</span>
+</span><span><a class="LN" name="38">   38   </a>  FLEXCAN(0).CTRL1.B.SMP = 0;          <span class="CT">/* Number of samples */</span>
+</span><span><a class="LN" name="39">   39   </a>  FLEXCAN(0).CTRL1.B.BOFFREC = 0;      <span class="CT">/* 0: Automatic recovering from bus off state enabled;1: disable */</span>
+</span><span><a class="LN" name="40">   40   </a>  FLEXCAN(0).CTRL1.B.TSYN = 0;         <span class="CT">/* 0: Timer sync feature disabled;1: enable */</span>
+</span><span><a class="LN" name="41">   41   </a>  FLEXCAN(0).CTRL1.B.LBUF = 0;         <span class="CT">/* 0: Buffer with lowest ID is transmitted first</span>
+</span><span><a class="LN" name="42">   42   </a><span class="CT">                                          1: Lowest number buffer is transmitted first */</span>
+</span><span><a class="LN" name="43">   43   </a>  FLEXCAN(0).CTRL1.B.LOM = 0;          <span class="CT">/* Listen-only mode disable */</span>
+</span><span><a class="LN" name="44">   44   </a>  FLEXCAN(0).CTRL1.B.PROPSEG = 6;      <span class="CT">/* Defines the length of the propagation segment in the bit time */</span>
+</span><span><a class="LN" name="45">   45   </a>  <span class="KW">for</span> (i=0; i&lt;NumCanMaxMB; i++)        <span class="CT">/* Initialize message buffer for receive or transmit */</span>
+</span><span><a class="LN" name="46">   46   </a>  <b>{</b>
+</span><span><a class="LN" name="47">   47   </a>    FLEXCAN(0).MB[i].CS.R = caninit-&gt;MBCS[i];
+</span><span><a class="LN" name="48">   48   </a>    <span class="KW">for</span> (j=0; j&lt;8; j++) <b>{</b>
+</span><span><a class="LN" name="49">   49   </a>      FLEXCAN(0).MB[i].DATA.B[j] = 0;
+</span><span><a class="LN" name="50">   50   </a>    <b>}</b>
+</span><span><a class="LN" name="51">   51   </a>  <b>}</b>
+</span><span><a class="LN" name="52">   52   </a>
+</span><span><a class="LN" name="53">   53   </a>  FLEXCAN(0).MB[14].ID.R = 0;
+</span><span><a class="LN" name="54">   54   </a>  FLEXCAN(0).RXMGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="55">   55   </a>  FLEXCAN(0).RX14MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="56">   56   </a>  FLEXCAN(0).RX15MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="57">   57   </a>  FLEXCAN(0).RXFGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="58">   58   </a>  FLEXCAN(0).ECR.R = 0;
+</span><span><a class="LN" name="59">   59   </a>  FLEXCAN(0).IMASK2.R = 0;
+</span><span><a class="LN" name="60">   60   </a>  FLEXCAN(0).IFLAG2.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="61">   61   </a>  FLEXCAN(0).IFLAG1.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="62">   62   </a>  FLEXCAN(0).ESR1.R = CAN_ERRINT|CAN_BOFFINT;<span class="CT">/* Error interrupt flag & Bus off interrupt flag */</span>
+</span><span><a class="LN" name="63">   63   </a>  FLEXCAN(0).MCR.R = CAN_NORMAL_MODE|NUM_OF_ENABLED_MB;<span class="CT">/* Normal mode */</span>
+</span><span><a class="LN" name="64">   64   </a>  FLEXCAN(0).MCR.B.HALT = 0;           <span class="CT">/* FlexCAN0 attempts to synchronize with the CAN bus */</span>
+</span><span><a class="LN" name="65">   65   </a><b>}</b>
+</span><span><a class="LN" name="66">   66   </a>
+</span><span><a class="LN" name="67">   67   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="68">   68   </a>
+</span><span><a class="LN" name="69">   69   </a><font color="#992211">#</font><span class="PP">if</span> 1
+</span><span><a class="LN" name="70">   70   </a>
+</span><span><a class="LN" name="71">   71   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="72">   72   </a><span class="CT"> * FUNCTION :    ec_can1_init                                              *</span>
+</span><span><a class="LN" name="73">   73   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="74">   74   </a><span class="CT"> * DESCRIPTION : Initialize FlexCAN1 module                                *</span>
+</span><span><a class="LN" name="75">   75   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="76">   76   </a><span class="CT"> * PARAMETERS :  -*caninit: pointer to configuration set                   *</span>
+</span><span><a class="LN" name="77">   77   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="78">   78   </a><span class="CT"> * RETURN:       None                                                      *</span>
+</span><span><a class="LN" name="79">   79   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="80">   80   </a><span class="DT">void</span> <a name="fcn_ec_can1_init">ec_can1_init</a>(CAN_Initialization* caninit)
+</span><span><a class="LN" name="81">   81   </a><b>{</b>
+</span><span><a class="LN" name="82">   82   </a>  uint8 i,j;
+</span><span><a class="LN" name="83">   83   </a>  CAN_1.MCR.R = 0x5000003F;            <span class="CT">/* 64 message buffers in use */</span>
+</span><span><a class="LN" name="84">   84   </a>  <span class="KW">while</span> (!CAN_1.MCR.B.FRZACK) ;
+</span><span><a class="LN" name="85">   85   </a>  FLEXCAN(1).CTRL1.B.PRESDIV = 4;      <span class="CT">/* Prescaler division factor */</span>
+</span><span><a class="LN" name="86">   86   </a>  FLEXCAN(1).CTRL1.B.RJW = 1;          <span class="CT">/* Synchronization jump width */</span>
+</span><span><a class="LN" name="87">   87   </a>  FLEXCAN(1).CTRL1.B.PSEG1 = 3;        <span class="CT">/* Phase segment 1 */</span>
+</span><span><a class="LN" name="88">   88   </a>  FLEXCAN(1).CTRL1.B.PSEG2 = 3;        <span class="CT">/* Phase segment 2 */</span>
+</span><span><a class="LN" name="89">   89   </a>  FLEXCAN(1).CTRL1.B.BOFFMSK = 0;      <span class="CT">/* 1: Bus off interrupt enabled; 0: Bus off interrupt disabled */</span>
+</span><span><a class="LN" name="90">   90   </a>  FLEXCAN(1).CTRL1.B.ERRMSK = 0;       <span class="CT">/* 1: Error interrupt enabled; 0: Error interrupt disabled */</span>
+</span><span><a class="LN" name="91">   91   </a>  FLEXCAN(1).CTRL1.B.CLKSRC = 0;       <span class="CT">/* CAN engine clock source. 0: oscillator clock; 1: system clock */</span>
+</span><span><a class="LN" name="92">   92   </a>  FLEXCAN(1).CTRL1.B.LPB = 0;          <span class="CT">/* 0: Loop back disabled */</span>
+</span><span><a class="LN" name="93">   93   </a>  FLEXCAN(1).CTRL1.B.SMP = 0;          <span class="CT">/* Number of samples */</span>
+</span><span><a class="LN" name="94">   94   </a>  FLEXCAN(1).CTRL1.B.BOFFREC = 0;      <span class="CT">/* 0: Automatic recovering from bus off state enabled; 1: disable */</span>
+</span><span><a class="LN" name="95">   95   </a>  FLEXCAN(1).CTRL1.B.TSYN = 0;         <span class="CT">/* 0: Timer sync feature disabled; 1: enable */</span>
+</span><span><a class="LN" name="96">   96   </a>  FLEXCAN(1).CTRL1.B.LBUF = 0;         <span class="CT">/* 0: Buffer with lowest ID is transmitted first</span>
+</span><span><a class="LN" name="97">   97   </a><span class="CT">                                          1: Lowest number buffer is transmitted first */</span>
+</span><span><a class="LN" name="98">   98   </a>  FLEXCAN(1).CTRL1.B.LOM = 0;          <span class="CT">/* Listen-only mode disable */</span>
+</span><span><a class="LN" name="99">   99   </a>  FLEXCAN(1).CTRL1.B.PROPSEG = 6;      <span class="CT">/* Defines the length of the propagation segment in the bit time */</span>
+</span><span><a class="LN" name="100">  100   </a>  <span class="KW">for</span> (i=0; i&lt;NumCanMaxMB; i++)        <span class="CT">/* Initialize message buffer for receive or transmit  */</span>
+</span><span><a class="LN" name="101">  101   </a>  <b>{</b>
+</span><span><a class="LN" name="102">  102   </a>    FLEXCAN(1).MB[i].CS.R = caninit-&gt;MBCS[i];
+</span><span><a class="LN" name="103">  103   </a>    <span class="KW">for</span> (j=0; j&lt;8; j++) <b>{</b>
+</span><span><a class="LN" name="104">  104   </a>      FLEXCAN(1).MB[i].DATA.B[j] = 0;
+</span><span><a class="LN" name="105">  105   </a>    <b>}</b>
+</span><span><a class="LN" name="106">  106   </a>  <b>}</b>
+</span><span><a class="LN" name="107">  107   </a>
+</span><span><a class="LN" name="108">  108   </a>  FLEXCAN(1).MB[14].ID.R = 0;
+</span><span><a class="LN" name="109">  109   </a>  FLEXCAN(1).RXMGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="110">  110   </a>  FLEXCAN(1).RX14MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="111">  111   </a>  FLEXCAN(1).RX15MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="112">  112   </a>  FLEXCAN(1).RXFGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="113">  113   </a>  FLEXCAN(1).ECR.R = 0;
+</span><span><a class="LN" name="114">  114   </a>  FLEXCAN(1).IMASK2.R = 0;
+</span><span><a class="LN" name="115">  115   </a>  FLEXCAN(1).IFLAG2.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="116">  116   </a>  FLEXCAN(1).IFLAG1.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="117">  117   </a>  FLEXCAN(1).ESR1.R = CAN_ERRINT|CAN_BOFFINT;<span class="CT">/* Error interrupt flag & Bus off interrupt flag */</span>
+</span><span><a class="LN" name="118">  118   </a>  FLEXCAN(1).MCR.R = CAN_NORMAL_MODE|NUM_OF_ENABLED_MB;<span class="CT">/* Normal mode */</span>
+</span><span><a class="LN" name="119">  119   </a>  FLEXCAN(1).MCR.B.HALT = 0;           <span class="CT">/* FlexCAN1 attempts to synchronize with the CAN bus */</span>
+</span><span><a class="LN" name="120">  120   </a><b>}</b>
+</span><span><a class="LN" name="121">  121   </a>
+</span><span><a class="LN" name="122">  122   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="123">  123   </a>
+</span><span><a class="LN" name="124">  124   </a><font color="#992211">#</font><span class="PP">if</span> 1
+</span><span><a class="LN" name="125">  125   </a>
+</span><span><a class="LN" name="126">  126   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="127">  127   </a><span class="CT"> * FUNCTION :    ec_can2_init                                              *</span>
+</span><span><a class="LN" name="128">  128   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="129">  129   </a><span class="CT"> * DESCRIPTION : Initialize FlexCAN2 module                                *</span>
+</span><span><a class="LN" name="130">  130   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="131">  131   </a><span class="CT"> * PARAMETERS :  -*caninit: pointer to configuration set                   *</span>
+</span><span><a class="LN" name="132">  132   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="133">  133   </a><span class="CT"> * RETURN :      None                                                      *</span>
+</span><span><a class="LN" name="134">  134   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="135">  135   </a><span class="DT">void</span> <a name="fcn_ec_can2_init">ec_can2_init</a>(CAN_Initialization* caninit)
+</span><span><a class="LN" name="136">  136   </a><b>{</b>
+</span><span><a class="LN" name="137">  137   </a>  uint8 i,j;
+</span><span><a class="LN" name="138">  138   </a>  CAN_2.MCR.R = 0x5000003F;            <span class="CT">/* 64 message buffers in use */</span>
+</span><span><a class="LN" name="139">  139   </a>  <span class="KW">while</span> (!CAN_2.MCR.B.FRZACK) ;
+</span><span><a class="LN" name="140">  140   </a>  FLEXCAN(2).CTRL1.B.PRESDIV = 4;      <span class="CT">/* Prescaler division factor */</span>
+</span><span><a class="LN" name="141">  141   </a>  FLEXCAN(2).CTRL1.B.RJW = 1;          <span class="CT">/* Synchronization jump width */</span>
+</span><span><a class="LN" name="142">  142   </a>  FLEXCAN(2).CTRL1.B.PSEG1 = 3;        <span class="CT">/* Phase segment 1 */</span>
+</span><span><a class="LN" name="143">  143   </a>  FLEXCAN(2).CTRL1.B.PSEG2 = 3;        <span class="CT">/* Phase segment 2 */</span>
+</span><span><a class="LN" name="144">  144   </a>  FLEXCAN(2).CTRL1.B.BOFFMSK = 0;      <span class="CT">/* 1: Bus off interrupt enabled; 0: Bus off interrupt disabled */</span>
+</span><span><a class="LN" name="145">  145   </a>  FLEXCAN(2).CTRL1.B.ERRMSK = 0;       <span class="CT">/* 1: Error interrupt enabled; 0: Error interrupt disabled */</span>
+</span><span><a class="LN" name="146">  146   </a>  FLEXCAN(2).CTRL1.B.CLKSRC = 0;       <span class="CT">/* CAN engine clock source. 0: oscillator clock; 1: system clock */</span>
+</span><span><a class="LN" name="147">  147   </a>  FLEXCAN(2).CTRL1.B.LPB = 0;          <span class="CT">/* 0: Loop back disabled */</span>
+</span><span><a class="LN" name="148">  148   </a>  FLEXCAN(2).CTRL1.B.SMP = 0;          <span class="CT">/* Number of samples */</span>
+</span><span><a class="LN" name="149">  149   </a>  FLEXCAN(2).CTRL1.B.BOFFREC = 0;      <span class="CT">/* 0: Automatic recovering from bus off state enabled; 1: disable */</span>
+</span><span><a class="LN" name="150">  150   </a>  FLEXCAN(2).CTRL1.B.TSYN = 0;         <span class="CT">/* 0: Timer sync feature disabled; 1: enable */</span>
+</span><span><a class="LN" name="151">  151   </a>  FLEXCAN(2).CTRL1.B.LBUF = 0;         <span class="CT">/* 0: Buffer with lowest ID is transmitted first</span>
+</span><span><a class="LN" name="152">  152   </a><span class="CT">                                          1: Lowest number buffer is transmitted first */</span>
+</span><span><a class="LN" name="153">  153   </a>  FLEXCAN(2).CTRL1.B.LOM = 0;          <span class="CT">/* Listen-only mode disable */</span>
+</span><span><a class="LN" name="154">  154   </a>  FLEXCAN(2).CTRL1.B.PROPSEG = 6;      <span class="CT">/* Defines the length of the propagation segment in the bit time */</span>
+</span><span><a class="LN" name="155">  155   </a>  <span class="KW">for</span> (i=0; i&lt;NumCanMaxMB; i++)        <span class="CT">/* Initialize message buffer for receive or transmit */</span>
+</span><span><a class="LN" name="156">  156   </a>  <b>{</b>
+</span><span><a class="LN" name="157">  157   </a>    FLEXCAN(2).MB[i].CS.R = caninit-&gt;MBCS[i];
+</span><span><a class="LN" name="158">  158   </a>    <span class="KW">for</span> (j=0; j&lt;8; j++) <b>{</b>
+</span><span><a class="LN" name="159">  159   </a>      FLEXCAN(2).MB[i].DATA.B[j] = 0;
+</span><span><a class="LN" name="160">  160   </a>    <b>}</b>
+</span><span><a class="LN" name="161">  161   </a>  <b>}</b>
+</span><span><a class="LN" name="162">  162   </a>
+</span><span><a class="LN" name="163">  163   </a>  FLEXCAN(2).MB[14].ID.R = 0;
+</span><span><a class="LN" name="164">  164   </a>  FLEXCAN(2).RXMGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="165">  165   </a>  FLEXCAN(2).RX14MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="166">  166   </a>  FLEXCAN(2).RX15MASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="167">  167   </a>  FLEXCAN(2).RXFGMASK.R = 0xFFFFFFFF;
+</span><span><a class="LN" name="168">  168   </a>  FLEXCAN(2).ECR.R = 0;
+</span><span><a class="LN" name="169">  169   </a>  FLEXCAN(2).IMASK2.R = 0;
+</span><span><a class="LN" name="170">  170   </a>  FLEXCAN(2).IFLAG2.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="171">  171   </a>  FLEXCAN(2).IFLAG1.R = 0xFFFFFFFF;    <span class="CT">/* Clear interruput flag */</span>
+</span><span><a class="LN" name="172">  172   </a>  FLEXCAN(2).ESR1.R = CAN_ERRINT|CAN_BOFFINT;<span class="CT">/* Error interrupt flag & Bus off interrupt flag */</span>
+</span><span><a class="LN" name="173">  173   </a>  FLEXCAN(2).MCR.R = CAN_NORMAL_MODE|NUM_OF_ENABLED_MB;<span class="CT">/* Normal mode */</span>
+</span><span><a class="LN" name="174">  174   </a>  FLEXCAN(2).MCR.B.HALT = 0;           <span class="CT">/* FlexCAN2 attempts to synchronize with the CAN bus */</span>
+</span><span><a class="LN" name="175">  175   </a><b>}</b>
+</span><span><a class="LN" name="176">  176   </a>
+</span><span><a class="LN" name="177">  177   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="178">  178   </a>
+</span><span><a class="LN" name="179">  179   </a><font color="#992211">#</font><span class="PP">if</span> CANAENABLE||CANBENABLE||CANCENABLE
+</span><span><a class="LN" name="180">  180   </a>
+</span><span><a class="LN" name="181">  181   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="182">  182   </a><span class="CT"> * FUNCTION :    ec_buffer_init                                            *</span>
+</span><span><a class="LN" name="183">  183   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="184">  184   </a><span class="CT"> * DESCRIPTION : Initializes CAN buffer for CAN Controller                 *</span>
+</span><span><a class="LN" name="185">  185   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="186">  186   </a><span class="CT"> * PARAMETERS :  -Module: FLEXCAN_A, FLEXCAN_B or FLEXCAN_C                *</span>
+</span><span><a class="LN" name="187">  187   </a><span class="CT"> *               -BufNum: buffer number                                    *</span>
+</span><span><a class="LN" name="188">  188   </a><span class="CT"> *               -IdType: standard or extended ID type                     *</span>
+</span><span><a class="LN" name="189">  189   </a><span class="CT"> *               -Id: CAN message ID                                       *</span>
+</span><span><a class="LN" name="190">  190   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="191">  191   </a><span class="CT"> * RETURN :      None                                                      *</span>
+</span><span><a class="LN" name="192">  192   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="193">  193   </a><span class="DT">void</span> <a name="fcn_ec_buffer_init">ec_buffer_init</a>(uint8 Module,uint8 BufNum,uint8 IdType,uint32 Id)
+</span><span><a class="LN" name="194">  194   </a><b>{</b>
+</span><span><a class="LN" name="195">  195   </a>  FLEXCAN(Module).MCR.R = 0x5000003F;  <span class="CT">/* 64 message buffers in use */</span>
+</span><span><a class="LN" name="196">  196   </a>  <span class="KW">if</span> ((BufNum &lt; 8)||(BufNum &gt; 15)) <b>{</b>
+</span><span><a class="LN" name="197">  197   </a>    <span class="KW">if</span> (IdType == 0) <b>{</b>
+</span><span><a class="LN" name="198">  198   </a>      FLEXCAN(Module).MB[BufNum].ID.B.ID_STD = Id;
+</span><span><a class="LN" name="199">  199   </a>      FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_ST;
+</span><span><a class="LN" name="200">  200   </a>    <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="201">  201   </a>      FLEXCAN(Module).MB[BufNum].ID.R = Id;
+</span><span><a class="LN" name="202">  202   </a>      FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_EX;
+</span><span><a class="LN" name="203">  203   </a>    <b>}</b>
+</span><span><a class="LN" name="204">  204   </a>  <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="205">  205   </a>  <b>}</b>
+</span><span><a class="LN" name="206">  206   </a>
+</span><span><a class="LN" name="207">  207   </a>  <span class="KW">if</span> (BufNum == 14) <b>{</b>
+</span><span><a class="LN" name="208">  208   </a>    FLEXCAN(Module).RX14MASK.R = 0x10000000;
+</span><span><a class="LN" name="209">  209   </a>  <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="210">  210   </a>  <b>}</b>
+</span><span><a class="LN" name="211">  211   </a>
+</span><span><a class="LN" name="212">  212   </a>  FLEXCAN(Module).MCR.R = CAN_NORMAL_MODE|NUM_OF_ENABLED_MB;<span class="CT">/* Normal mode */</span>
+</span><span><a class="LN" name="213">  213   </a>  FLEXCAN(Module).MCR.B.HALT= 0;       <span class="CT">/* FlexCAN attempts to synchronize with the CAN bus */</span>
+</span><span><a class="LN" name="214">  214   </a><b>}</b>
+</span><span><a class="LN" name="215">  215   </a>
+</span><span><a class="LN" name="216">  216   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="217">  217   </a><span class="CT"> * FUNCTION :    ec_bufint_init                                            *</span>
+</span><span><a class="LN" name="218">  218   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="219">  219   </a><span class="CT"> * DESCRIPTION : Initializes CAN buffer interrupts for CAN Controller      *</span>
+</span><span><a class="LN" name="220">  220   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="221">  221   </a><span class="CT"> * PARAMETERS :  -Module: FLEXCAN_A, FLEXCAN_B or FLEXCAN_C                *</span>
+</span><span><a class="LN" name="222">  222   </a><span class="CT"> *               -BufNum: buffer number                                    *</span>
+</span><span><a class="LN" name="223">  223   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="224">  224   </a><span class="CT"> * RETURN :      None                                                      *</span>
+</span><span><a class="LN" name="225">  225   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="226">  226   </a><span class="DT">void</span> <a name="fcn_ec_bufint_init">ec_bufint_init</a>(uint8 Module,uint8 BufNum)
+</span><span><a class="LN" name="227">  227   </a><b>{</b>
+</span><span><a class="LN" name="228">  228   </a>  FLEXCAN(Module).MCR.R = 0x5000003F;  <span class="CT">/* 64 message buffers in use */</span>
+</span><span><a class="LN" name="229">  229   </a>  FLEXCAN(Module).IMASK1.R |= (0x1U &lt;&lt; BufNum);
+</span><span><a class="LN" name="230">  230   </a>  FLEXCAN(Module).MCR.R = CAN_NORMAL_MODE|NUM_OF_ENABLED_MB;<span class="CT">/* Normal mode */</span>
+</span><span><a class="LN" name="231">  231   </a>  FLEXCAN(Module).MCR.B.HALT = 0;      <span class="CT">/* FlexCAN attempts to synchronize with the CAN bus */</span>
+</span><span><a class="LN" name="232">  232   </a><b>}</b>
+</span><span><a class="LN" name="233">  233   </a>
+</span><span><a class="LN" name="234">  234   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="235">  235   </a><span class="CT"> * FUNCTION :    ec_can_receive                                            *</span>
+</span><span><a class="LN" name="236">  236   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="237">  237   </a><span class="CT"> * DESCRIPTION : Receive CAN message and copy message to Rx_Buffer[]       *</span>
+</span><span><a class="LN" name="238">  238   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="239">  239   </a><span class="CT"> * PARAMETERS :  -Module: FLEXCAN_0, FLEXCAN_1 or FLEXCAN_2                *</span>
+</span><span><a class="LN" name="240">  240   </a><span class="CT"> *               -BufNum: buffer number for receive                        *</span>
+</span><span><a class="LN" name="241">  241   </a><span class="CT"> *               -Rx_Buffer: a pointer pointing to the buffer used to      *</span>
+</span><span><a class="LN" name="242">  242   </a><span class="CT"> *                save the data received by CAN                            *</span>
+</span><span><a class="LN" name="243">  243   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="244">  244   </a><span class="CT"> * RETURN :      -result: CAN_NOT_OK or CAN_OK                             *</span>
+</span><span><a class="LN" name="245">  245   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="246">  246   </a>CAN_Return <a name="fcn_ec_can_receive">ec_can_receive</a>(uint8 Module,uint8 BufNum,uint8 Rx_Buffer[])
+</span><span><a class="LN" name="247">  247   </a><b>{</b>
+</span><span><a class="LN" name="248">  248   </a>  uint8 DataNum,Code,Length;
+</span><span><a class="LN" name="249">  249   </a>  uint16 FrameTime;
+</span><span><a class="LN" name="250">  250   </a>  uint32 i;
+</span><span><a class="LN" name="251">  251   </a>  CAN_Return result = CAN_NOT_OK;
+</span><span><a class="LN" name="252">  252   </a>  <span class="KW">if</span> (BufNum&lt;32) <b>{</b>
+</span><span><a class="LN" name="253">  253   </a>    <span class="KW">if</span> (((FLEXCAN(Module).IFLAG1.R&gt;&gt;BufNum)&amp;0x01) == 0x01) <b>{</b>
+</span><span><a class="LN" name="254">  254   </a>      Code = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.CODE;
+</span><span><a class="LN" name="255">  255   </a>      Length = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.DLC;
+</span><span><a class="LN" name="256">  256   </a>      FrameTime = (uint16)FLEXCAN(Module).MB[BufNum].CS.B.TIMESTAMP;
+</span><span><a class="LN" name="257">  257   </a>      <span class="KW">for</span> (DataNum=0; DataNum&lt;FLEXCAN(Module).MB[BufNum].CS.B.DLC; DataNum++) <b>{</b>
+</span><span><a class="LN" name="258">  258   </a>        Rx_Buffer[DataNum] = (uint8)FLEXCAN(Module).MB[BufNum].DATA.B[DataNum];
+</span><span><a class="LN" name="259">  259   </a>      <b>}</b>
+</span><span><a class="LN" name="260">  260   </a>
+</span><span><a class="LN" name="261">  261   </a>      ec_can_applrxindication(Module,BufNum,Rx_Buffer);
+</span><span><a class="LN" name="262">  262   </a>      i = FLEXCAN(Module).TIMER.R;
+</span><span><a class="LN" name="263">  263   </a>      FLEXCAN(Module).IFLAG1.R = (uint32)0x01&lt;&lt;BufNum;
+</span><span><a class="LN" name="264">  264   </a>      result = CAN_OK;
+</span><span><a class="LN" name="265">  265   </a>    <b>}</b>
+</span><span><a class="LN" name="266">  266   </a>  <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="267">  267   </a>    <span class="KW">if</span> (((FLEXCAN(Module).IFLAG2.R&gt;&gt;(BufNum-32))&amp;0x01) == 0x01) <b>{</b>
+</span><span><a class="LN" name="268">  268   </a>      Code = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.CODE;
+</span><span><a class="LN" name="269">  269   </a>      Length = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.DLC;
+</span><span><a class="LN" name="270">  270   </a>      FrameTime = (uint16)FLEXCAN(Module).MB[BufNum].CS.B.TIMESTAMP;
+</span><span><a class="LN" name="271">  271   </a>      <span class="KW">for</span> (DataNum=0; DataNum&lt;FLEXCAN(Module).MB[BufNum].CS.B.DLC; DataNum++) <b>{</b>
+</span><span><a class="LN" name="272">  272   </a>        Rx_Buffer[DataNum] = (uint8)FLEXCAN(Module).MB[BufNum].DATA.B[DataNum];
+</span><span><a class="LN" name="273">  273   </a>      <b>}</b>
+</span><span><a class="LN" name="274">  274   </a>
+</span><span><a class="LN" name="275">  275   </a>      ec_can_applrxindication(Module,BufNum,Rx_Buffer);
+</span><span><a class="LN" name="276">  276   </a>      i = FLEXCAN(Module).TIMER.R;
+</span><span><a class="LN" name="277">  277   </a>      FLEXCAN(Module).IFLAG2.R = (uint32)0x01&lt;&lt;(BufNum-32);
+</span><span><a class="LN" name="278">  278   </a>      result = CAN_OK;
+</span><span><a class="LN" name="279">  279   </a>    <b>}</b>
+</span><span><a class="LN" name="280">  280   </a>  <b>}</b>
+</span><span><a class="LN" name="281">  281   </a>
+</span><span><a class="LN" name="282">  282   </a>  <span class="KW">return</span> result;
+</span><span><a class="LN" name="283">  283   </a><b>}</b>
+</span><span><a class="LN" name="284">  284   </a>
+</span><span><a class="LN" name="285">  285   </a>CAN_Return <a name="fcn_ec_can_receive_UDS">ec_can_receive_UDS</a>(uint8 Module,uint8 BufNum,uint8 Rx_Buffer[], uint8
+</span><span><a class="LN" name="286">  286   </a>  *DLC)
+</span><span><a class="LN" name="287">  287   </a><b>{</b>
+</span><span><a class="LN" name="288">  288   </a>  uint8 DataNum,Code,Length;
+</span><span><a class="LN" name="289">  289   </a>  uint16 FrameTime;
+</span><span><a class="LN" name="290">  290   </a>  uint32 i;
+</span><span><a class="LN" name="291">  291   </a>  CAN_Return result = CAN_NOT_OK;
+</span><span><a class="LN" name="292">  292   </a>  <span class="KW">if</span> (BufNum&lt;32) <b>{</b>
+</span><span><a class="LN" name="293">  293   </a>    <span class="KW">if</span> (((FLEXCAN(Module).IFLAG1.R&gt;&gt;BufNum)&amp;0x01) == 0x01) <b>{</b>
+</span><span><a class="LN" name="294">  294   </a>      Code = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.CODE;
+</span><span><a class="LN" name="295">  295   </a>      *DLC = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.DLC;
+</span><span><a class="LN" name="296">  296   </a>      FrameTime = (uint16)FLEXCAN(Module).MB[BufNum].CS.B.TIMESTAMP;
+</span><span><a class="LN" name="297">  297   </a>      <span class="KW">for</span> (DataNum=0; DataNum&lt;FLEXCAN(Module).MB[BufNum].CS.B.DLC; DataNum++) <b>{</b>
+</span><span><a class="LN" name="298">  298   </a>        Rx_Buffer[DataNum] = (uint8)FLEXCAN(Module).MB[BufNum].DATA.B[DataNum];
+</span><span><a class="LN" name="299">  299   </a>      <b>}</b>
+</span><span><a class="LN" name="300">  300   </a>
+</span><span><a class="LN" name="301">  301   </a>      ec_can_applrxindication(Module,BufNum,Rx_Buffer);
+</span><span><a class="LN" name="302">  302   </a>      i = FLEXCAN(Module).TIMER.R;
+</span><span><a class="LN" name="303">  303   </a>      FLEXCAN(Module).IFLAG1.R = (uint32)0x01&lt;&lt;BufNum;
+</span><span><a class="LN" name="304">  304   </a>      result = CAN_OK;
+</span><span><a class="LN" name="305">  305   </a>    <b>}</b>
+</span><span><a class="LN" name="306">  306   </a>  <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="307">  307   </a>    <span class="KW">if</span> (((FLEXCAN(Module).IFLAG2.R&gt;&gt;(BufNum-32))&amp;0x01) == 0x01) <b>{</b>
+</span><span><a class="LN" name="308">  308   </a>      Code = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.CODE;
+</span><span><a class="LN" name="309">  309   </a>      *DLC = (uint8)FLEXCAN(Module).MB[BufNum].CS.B.DLC;
+</span><span><a class="LN" name="310">  310   </a>      FrameTime = (uint16)FLEXCAN(Module).MB[BufNum].CS.B.TIMESTAMP;
+</span><span><a class="LN" name="311">  311   </a>      <span class="KW">for</span> (DataNum=0; DataNum&lt;FLEXCAN(Module).MB[BufNum].CS.B.DLC; DataNum++) <b>{</b>
+</span><span><a class="LN" name="312">  312   </a>        Rx_Buffer[DataNum] = (uint8)FLEXCAN(Module).MB[BufNum].DATA.B[DataNum];
+</span><span><a class="LN" name="313">  313   </a>      <b>}</b>
+</span><span><a class="LN" name="314">  314   </a>
+</span><span><a class="LN" name="315">  315   </a>      ec_can_applrxindication(Module,BufNum,Rx_Buffer);
+</span><span><a class="LN" name="316">  316   </a>      i = FLEXCAN(Module).TIMER.R;
+</span><span><a class="LN" name="317">  317   </a>      FLEXCAN(Module).IFLAG2.R = (uint32)0x01&lt;&lt;(BufNum-32);
+</span><span><a class="LN" name="318">  318   </a>      result = CAN_OK;
+</span><span><a class="LN" name="319">  319   </a>    <b>}</b>
+</span><span><a class="LN" name="320">  320   </a>  <b>}</b>
+</span><span><a class="LN" name="321">  321   </a>
+</span><span><a class="LN" name="322">  322   </a>  <span class="KW">return</span> result;
+</span><span><a class="LN" name="323">  323   </a><b>}</b>
+</span><span><a class="LN" name="324">  324   </a>
+</span><span><a class="LN" name="325">  325   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="326">  326   </a><span class="CT"> * FUNCTION :    ec_can_receiveall                                         *</span>
+</span><span><a class="LN" name="327">  327   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="328">  328   </a><span class="CT"> * DESCRIPTION : Receive CAN message and copy message to Rx_Buffer[]       *</span>
+</span><span><a class="LN" name="329">  329   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="330">  330   </a><span class="CT"> * PARAMETERS :  -Module: FLEXCAN_0, FLEXCAN_1 or FLEXCAN_2                *</span>
+</span><span><a class="LN" name="331">  331   </a><span class="CT"> *               -*Id: CAN message ID                                      *</span>
+</span><span><a class="LN" name="332">  332   </a><span class="CT"> *               -*Dlc: CAN message length                                 *</span>
+</span><span><a class="LN" name="333">  333   </a><span class="CT"> *               -Rx_Buffer: a pointer pointing to the buffer used to      *</span>
+</span><span><a class="LN" name="334">  334   </a><span class="CT"> *                save the data received by CAN                            *</span>
+</span><span><a class="LN" name="335">  335   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="336">  336   </a><span class="CT"> * RETURN :      -result: CAN_NOT_OK or CAN_OK                             *</span>
+</span><span><a class="LN" name="337">  337   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="338">  338   </a>CAN_Return <a name="fcn_ec_can_receiveall">ec_can_receiveall</a>(uint8 Module,uint32 *Id,uint8 *Dlc,uint8 Rx_Buffer[])
+</span><span><a class="LN" name="339">  339   </a><b>{</b>
+</span><span><a class="LN" name="340">  340   </a>  uint8 DataNum,Code;
+</span><span><a class="LN" name="341">  341   </a>  uint16 FrameTime;
+</span><span><a class="LN" name="342">  342   </a>  uint32 i;
+</span><span><a class="LN" name="343">  343   </a>  CAN_Return result = CAN_NOT_OK;
+</span><span><a class="LN" name="344">  344   </a>  <span class="KW">if</span> (((FLEXCAN(Module).IFLAG1.R&gt;&gt;14)&amp;0x01) == 0x01) <b>{</b>
+</span><span><a class="LN" name="345">  345   </a>    Code = (uint8)FLEXCAN(Module).MB[14].CS.B.CODE;
+</span><span><a class="LN" name="346">  346   </a>    *Dlc = (uint8)FLEXCAN(Module).MB[14].CS.B.DLC;
+</span><span><a class="LN" name="347">  347   </a>    <span class="KW">if</span> (FLEXCAN(Module).MB[14].CS.B.IDE == MB_IDType_EX) <b>{</b>
+</span><span><a class="LN" name="348">  348   </a>      *Id = (uint32)FLEXCAN(Module).MB[14].ID.R;
+</span><span><a class="LN" name="349">  349   </a>    <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="350">  350   </a>      *Id = (uint32)FLEXCAN(Module).MB[14].ID.B.ID_STD;
+</span><span><a class="LN" name="351">  351   </a>    <b>}</b>
+</span><span><a class="LN" name="352">  352   </a>
+</span><span><a class="LN" name="353">  353   </a>    FrameTime = (uint16)FLEXCAN(Module).MB[14].CS.B.TIMESTAMP;
+</span><span><a class="LN" name="354">  354   </a>    <span class="KW">for</span> (DataNum=0; DataNum&lt;FLEXCAN(Module).MB[14].CS.B.DLC; DataNum++) <b>{</b>
+</span><span><a class="LN" name="355">  355   </a>      Rx_Buffer[DataNum] = (uint8)FLEXCAN(Module).MB[14].DATA.B[DataNum];
+</span><span><a class="LN" name="356">  356   </a>    <b>}</b>
+</span><span><a class="LN" name="357">  357   </a>
+</span><span><a class="LN" name="358">  358   </a>    i = FLEXCAN(Module).TIMER.R;
+</span><span><a class="LN" name="359">  359   </a>    FLEXCAN(Module).IFLAG1.R = (uint32)0x01&lt;&lt;14;
+</span><span><a class="LN" name="360">  360   </a>    result = CAN_OK;
+</span><span><a class="LN" name="361">  361   </a>  <b>}</b>
+</span><span><a class="LN" name="362">  362   </a>
+</span><span><a class="LN" name="363">  363   </a>  <span class="KW">return</span> result;
+</span><span><a class="LN" name="364">  364   </a><b>}</b>
+</span><span><a class="LN" name="365">  365   </a>
+</span><span><a class="LN" name="366">  366   </a><span class="CT">/**************************************************************************</span>
+</span><span><a class="LN" name="367">  367   </a><span class="CT"> * FUNCTION :    ec_can_transmit                                           *</span>
+</span><span><a class="LN" name="368">  368   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="369">  369   </a><span class="CT"> * DESCRIPTION : Copy CAN Tx_Buffer to CAN Message Buffer and then         *</span>
+</span><span><a class="LN" name="370">  370   </a><span class="CT"> *               transmit message to CAN bus                               *</span>
+</span><span><a class="LN" name="371">  371   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="372">  372   </a><span class="CT"> * PARAMETERS :  -Module: FLEXCAN_0, FLEXCAN_1 or FLEXCAN_2                *</span>
+</span><span><a class="LN" name="373">  373   </a><span class="CT"> *               -BufNum: buffer number for transmit                       *</span>
+</span><span><a class="LN" name="374">  374   </a><span class="CT"> *               -IdType: 0 means standard format;1 means entend format    *</span>
+</span><span><a class="LN" name="375">  375   </a><span class="CT"> *               -Id: the message ID to be transmitted                     *</span>
+</span><span><a class="LN" name="376">  376   </a><span class="CT"> *               -DataLength: data length of the frame data                *</span>
+</span><span><a class="LN" name="377">  377   </a><span class="CT"> *               -Tx_Buffer: the data array to be transmitted              *</span>
+</span><span><a class="LN" name="378">  378   </a><span class="CT"> *                                                                         *</span>
+</span><span><a class="LN" name="379">  379   </a><span class="CT"> * RETURN :      -result: CAN_BUSY or CAN_OK.                              *</span>
+</span><span><a class="LN" name="380">  380   </a><span class="CT"> ***************************************************************************/</span>
+</span><span><a class="LN" name="381">  381   </a>CAN_Return <a name="fcn_ec_can_transmit">ec_can_transmit</a>(uint8 Module,uint8 BufNum,uint8 IdType,uint32 Id,
+</span><span><a class="LN" name="382">  382   </a>  uint8 DataLength,uint8 Tx_Buffer[])
+</span><span><a class="LN" name="383">  383   </a><b>{</b>
+</span><span><a class="LN" name="384">  384   </a>  uint8 i;
+</span><span><a class="LN" name="385">  385   </a>  CAN_Return result = CAN_BUSY;
+</span><span><a class="LN" name="386">  386   </a>  <span class="KW">if</span> (BufNum&lt;8)
+</span><span><a class="LN" name="387">  387   </a>    BufNum = 8;
+</span><span><a class="LN" name="388">  388   </a>  <span class="KW">else</span> <span class="KW">if</span> ((BufNum&gt;15)&amp;(BufNum&lt;56))
+</span><span><a class="LN" name="389">  389   </a>    BufNum = 15;
+</span><span><a class="LN" name="390">  390   </a>  <span class="KW">else</span> <span class="KW">if</span> (BufNum&gt;63)
+</span><span><a class="LN" name="391">  391   </a>    BufNum = 63;
+</span><span><a class="LN" name="392">  392   </a>  <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="393">  393   </a>    <span class="KW">if</span> (FLEXCAN(Module).MB[BufNum].CS.B.CODE == TX_MB_CODE_TRANSMIT) <b>{</b>
+</span><span><a class="LN" name="394">  394   </a>      result = CAN_BUSY;
+</span><span><a class="LN" name="395">  395   </a>    <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="396">  396   </a>      <span class="KW">if</span> (IdType == 0) <b>{</b>
+</span><span><a class="LN" name="397">  397   </a>        FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_ST;
+</span><span><a class="LN" name="398">  398   </a>        FLEXCAN(Module).MB[BufNum].ID.B.ID_STD = Id;
+</span><span><a class="LN" name="399">  399   </a>        FLEXCAN(Module).MB[BufNum].CS.B.SRR = 0;
+</span><span><a class="LN" name="400">  400   </a>      <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="401">  401   </a>        FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_EX;
+</span><span><a class="LN" name="402">  402   </a>        FLEXCAN(Module).MB[BufNum].ID.R = (uint32)(Id&amp;0x1FFFFFFF);
+</span><span><a class="LN" name="403">  403   </a>        FLEXCAN(Module).MB[BufNum].CS.B.SRR = 1;
+</span><span><a class="LN" name="404">  404   </a>      <b>}</b>
+</span><span><a class="LN" name="405">  405   </a>
+</span><span><a class="LN" name="406">  406   </a>      FLEXCAN(Module).MB[BufNum].CS.B.RTR = 0;
+</span><span><a class="LN" name="407">  407   </a>      <span class="KW">for</span> (i=0; i&lt;DataLength; i++) <b>{</b>
+</span><span><a class="LN" name="408">  408   </a>        FLEXCAN(Module).MB[BufNum].DATA.B[i] = Tx_Buffer[i];
+</span><span><a class="LN" name="409">  409   </a>      <b>}</b>
+</span><span><a class="LN" name="410">  410   </a>
+</span><span><a class="LN" name="411">  411   </a>      FLEXCAN(Module).MB[BufNum].CS.B.DLC = DataLength;
+</span><span><a class="LN" name="412">  412   </a>      FLEXCAN(Module).MB[BufNum].CS.B.CODE = TX_MB_CODE_TRANSMIT;
+</span><span><a class="LN" name="413">  413   </a>      result = CAN_OK;
+</span><span><a class="LN" name="414">  414   </a>      ec_can_appltxconfirmation(Module,BufNum);
+</span><span><a class="LN" name="415">  415   </a>    <b>}</b>
+</span><span><a class="LN" name="416">  416   </a>  <b>}</b>
+</span><span><a class="LN" name="417">  417   </a>
+</span><span><a class="LN" name="418">  418   </a>  <span class="KW">return</span>(result);
+</span><span><a class="LN" name="419">  419   </a><b>}</b>
+</span><span><a class="LN" name="420">  420   </a>
+</span><span><a class="LN" name="421">  421   </a>CAN_Return <a name="fcn_ec_remote_transmit">ec_remote_transmit</a>(uint8 Module,uint8 BufNum,uint8 IdType,uint32 Id)
+</span><span><a class="LN" name="422">  422   </a><b>{</b>
+</span><span><a class="LN" name="423">  423   </a>  uint8 i;
+</span><span><a class="LN" name="424">  424   </a>  CAN_Return result = CAN_BUSY;
+</span><span><a class="LN" name="425">  425   </a>  <span class="KW">if</span> (BufNum&lt;8)
+</span><span><a class="LN" name="426">  426   </a>    BufNum = 8;
+</span><span><a class="LN" name="427">  427   </a>  <span class="KW">else</span> <span class="KW">if</span> ((BufNum&gt;15)&amp;(BufNum&lt;56))
+</span><span><a class="LN" name="428">  428   </a>    BufNum = 15;
+</span><span><a class="LN" name="429">  429   </a>  <span class="KW">else</span> <span class="KW">if</span> (BufNum&gt;63)
+</span><span><a class="LN" name="430">  430   </a>    BufNum = 63;
+</span><span><a class="LN" name="431">  431   </a>  <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="432">  432   </a>    <span class="KW">if</span> (FLEXCAN(Module).MB[BufNum].CS.B.CODE == TX_MB_CODE_TRANSMIT) <b>{</b>
+</span><span><a class="LN" name="433">  433   </a>      result = CAN_BUSY;
+</span><span><a class="LN" name="434">  434   </a>    <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="435">  435   </a>      <span class="KW">if</span> (IdType == 0) <b>{</b>
+</span><span><a class="LN" name="436">  436   </a>        FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_ST;
+</span><span><a class="LN" name="437">  437   </a>        FLEXCAN(Module).MB[BufNum].ID.B.ID_STD = Id;
+</span><span><a class="LN" name="438">  438   </a>        FLEXCAN(Module).MB[BufNum].CS.B.SRR = 0;
+</span><span><a class="LN" name="439">  439   </a>      <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="440">  440   </a>        FLEXCAN(Module).MB[BufNum].CS.B.IDE = MB_IDType_EX;
+</span><span><a class="LN" name="441">  441   </a>        FLEXCAN(Module).MB[BufNum].ID.R = (uint32)(Id&amp;0x1FFFFFFF);
+</span><span><a class="LN" name="442">  442   </a>        FLEXCAN(Module).MB[BufNum].CS.B.SRR = 1;
+</span><span><a class="LN" name="443">  443   </a>      <b>}</b>
+</span><span><a class="LN" name="444">  444   </a>
+</span><span><a class="LN" name="445">  445   </a>      FLEXCAN(Module).MB[BufNum].CS.B.RTR = 1;
+</span><span><a class="LN" name="446">  446   </a>      FLEXCAN(Module).MB[BufNum].CS.B.DLC = 8;
+</span><span><a class="LN" name="447">  447   </a>      FLEXCAN(Module).MB[BufNum].CS.B.CODE = TX_MB_CODE_TRANSMIT;
+</span><span><a class="LN" name="448">  448   </a>      result = CAN_OK;
+</span><span><a class="LN" name="449">  449   </a>    <b>}</b>
+</span><span><a class="LN" name="450">  450   </a>  <b>}</b>
+</span><span><a class="LN" name="451">  451   </a>
+</span><span><a class="LN" name="452">  452   </a>  <span class="KW">return</span>(result);
+</span><span><a class="LN" name="453">  453   </a><b>}</b>
+</span><span><a class="LN" name="454">  454   </a>
+</span><span><a class="LN" name="455">  455   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="456">  456   </a>
+</span><span><a class="LN" name="457">  457   </a><span class="CT">/* File trailer for ECUCoder generated file can.c.</span>
+</span><span><a class="LN" name="458">  458   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="459">  459   </a><span class="CT"> * [EOF]</span>
+</span><span><a class="LN" name="460">  460   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="461">  461   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MeCaControls>
+  <!--Controls info-->
+  <panelWidth>1334</panelWidth>
+  <panelHeight>693</panelHeight>
+  <backColor>-12566464</backColor>
+  <borderColor>-2039584</borderColor>
+  <MeCaControl>
+    <x>77</x>
+    <y>46</y>
+    <width>342</width>
+    <height>268</height>
+    <meCaControlName>
+    </meCaControlName>
+    <a2lVarName>
+    </a2lVarName>
+    <bgColor>-2894893</bgColor>
+    <controlClass>MeCa.Ctl.MeCaMeaMultiBasicControl</controlClass>
+    <minValue>0</minValue>
+    <maxValue>100</maxValue>
+    <pointOne>33</pointOne>
+    <pointTwo>66</pointTwo>
+    <MeCaControls_inner>
+      <BasicMeaControl>
+        <meCaControlName_inner>counter1</meCaControlName_inner>
+        <a2lVarName_inner>counter1</a2lVarName_inner>
+        <transferModel_inner>0</transferModel_inner>
+        <transferTimer_inner>100</transferTimer_inner>
+      </BasicMeaControl>
+      <BasicMeaControl>
+        <meCaControlName_inner>counter2</meCaControlName_inner>
+        <a2lVarName_inner>counter2</a2lVarName_inner>
+        <transferModel_inner>0</transferModel_inner>
+        <transferTimer_inner>100</transferTimer_inner>
+      </BasicMeaControl>
+      <BasicMeaControl>
+        <meCaControlName_inner>counter3</meCaControlName_inner>
+        <a2lVarName_inner>counter3</a2lVarName_inner>
+        <transferModel_inner>0</transferModel_inner>
+        <transferTimer_inner>100</transferTimer_inner>
+      </BasicMeaControl>
+    </MeCaControls_inner>
+  </MeCaControl>
+</MeCaControls>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MeCaConfig>
+  <layoutFile>design.layout</layoutFile>
+  <a2lFile>data.a2l</a2lFile>
+</MeCaConfig>
